@@ -1,0 +1,17 @@
+body {
+  font-size: 1em;
+  font-family: Arial, Helvetica;
+  background-color: $tk-black;
+  color: $default-white;
+}
+
+input {
+  padding: 5px;
+  width: 50%;
+  color: $tk-black;
+  font-size: 2em;
+}
+.container {
+  padding: 20px 5% 0 5%;
+  width: 100%;
+}
