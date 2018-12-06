@@ -1,0 +1,43 @@
+.boxart-container {
+  overflow: hidden;
+  padding: 28.125% 0;
+  position: relative;
+  margin: 0 auto;
+}
+.boxart-image {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left:0;
+  z-index: -10;
+}
+.boxart-movie-info {
+  // &:hover {
+  //   top: 0;
+  // }
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 15px;
+  background-color: $tk-black;
+  opacity: 0.5;
+  color: $default-white;
+  font-size: 1.5em;
+}
+.flexbox-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.movie-search {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.title-card {
+  position: relative;
+  margin:0 5px 20px;
+  cursor: pointer;
+  width: 23%;
+  min-width: 200px;
+}
