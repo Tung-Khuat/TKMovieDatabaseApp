@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { fetchMovieDataWithQuery } from '../actions/index';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router';
 
 export default class MovieListDisplay extends Component {
   constructor() {
@@ -14,7 +15,7 @@ export default class MovieListDisplay extends Component {
     }
     return this.props.movieList.map(
       (movie, i) => (
-        <div key={i} className="title-card" >
+        <Link to={`/movie/${movie.id}`} key={i} className="title-card" >
           <div className="boxart-container" >
             <img
               className="boxart-image"
@@ -22,7 +23,7 @@ export default class MovieListDisplay extends Component {
             />
             <div className="boxart-movie-info">{movie.title || movie.name || movie.original_name || 'N/A'}</div>
           </div>
-        </div>
+        </Link>
       ),
     );
   }
