@@ -10,7 +10,7 @@ class MovieInfoView extends Component {
   }
   render() {
     return (
-      <div className="flexbox-container">
+      <div>
         {
           this.props.movieInfo &&
           <MovieInfoDisplay movieInfo={this.props.movieInfo} />
