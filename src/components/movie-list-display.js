@@ -4,11 +4,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 
 export default class MovieListDisplay extends Component {
-  constructor() {
-    super();
-
-    // this.onInputChange = this.onInputChange.bind(this);
-  }
   renderMovieListDisplay() {
     if (this.props.movieList.length < 1) {
       return <div>No results found.</div>;
