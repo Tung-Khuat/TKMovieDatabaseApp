@@ -29,7 +29,7 @@ function receiveMovieInfo(json) {
 }
 
 export function fetchMovieDataWithQuery(query) {
-  const url = endpoints.multiSearch(query);
+  const url = endpoints.movieSearch(query);
   return (dispatch, getState) => {
     if (checkFetchingState(getState())) {
       dispatch(saveInputQuery(query));
