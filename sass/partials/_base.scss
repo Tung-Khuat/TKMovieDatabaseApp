@@ -1,3 +1,12 @@
+a {
+  text-decoration: none;
+  color: $default-white;
+  &:hover, &:focus,  {
+    text-decoration: none;
+    color: $default-white;
+  }
+}
+
 body {
   font-size: 1em;
   font-family: Arial, Helvetica;

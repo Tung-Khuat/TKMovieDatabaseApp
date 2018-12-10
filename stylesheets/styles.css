@@ -449,6 +449,17 @@ th {
 }
 
 /* line 1, ../sass/partials/_base.scss */
+a {
+  text-decoration: none;
+  color: #fff;
+}
+/* line 4, ../sass/partials/_base.scss */
+a:hover, a:focus {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* line 10, ../sass/partials/_base.scss */
 body {
   font-size: 1em;
   font-family: Arial, Helvetica;
@@ -456,7 +467,7 @@ body {
   color: #fff;
 }
 
-/* line 8, ../sass/partials/_base.scss */
+/* line 17, ../sass/partials/_base.scss */
 input {
   padding: 5px;
   width: 50%;
@@ -464,7 +475,7 @@ input {
   font-size: 2em;
 }
 
-/* line 14, ../sass/partials/_base.scss */
+/* line 23, ../sass/partials/_base.scss */
 .container {
   padding: 20px 5% 0 5%;
   width: 100%;
@@ -501,19 +512,111 @@ input {
   font-size: 1.5em;
 }
 
-/* line 29, ../sass/partials/_layout.scss */
+/* line 26, ../sass/partials/_layout.scss */
 .flexbox-container {
   display: flex;
   flex-wrap: wrap;
 }
 
+/* line 30, ../sass/partials/_layout.scss */
+.highlight-text-size {
+  font-size: 1.25em;
+}
+
 /* line 33, ../sass/partials/_layout.scss */
+.highlight-text-color {
+  color: #1474cc;
+}
+
+/* line 36, ../sass/partials/_layout.scss */
+.meta-data-container {
+  font-size: 1.5em;
+  padding-bottom: 30px;
+}
+
+/* line 40, ../sass/partials/_layout.scss */
+.movie-info-card {
+  width: 60%;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+}
+@media screen and (max-width: 991px) {
+  /* line 40, ../sass/partials/_layout.scss */
+  .movie-info-card {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* line 51, ../sass/partials/_layout.scss */
+.movie-info-container {
+  position: absolute;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.85) 15%, rgba(0, 0, 0, 0.2) 40%, #000000 90%);
+  height: 110vh;
+}
+
+/* line 57, ../sass/partials/_layout.scss */
+.movie-info-poster {
+  width: 100%;
+}
+@media screen and (max-width: 450px) {
+  /* line 57, ../sass/partials/_layout.scss */
+  .movie-info-poster {
+    width: 100px;
+  }
+}
+@media screen and (max-width: 991px) {
+  /* line 57, ../sass/partials/_layout.scss */
+  .movie-info-poster {
+    width: 360px;
+  }
+}
+
+/* line 66, ../sass/partials/_layout.scss */
+.movie-info-page-background {
+  width: 100%;
+  height: 100vh;
+  background: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  opacity: 0.7;
+  z-index: -100;
+}
+
+/* line 76, ../sass/partials/_layout.scss */
+.movie-overview {
+  color: #999;
+  padding-bottom: 10px;
+}
+
+/* line 80, ../sass/partials/_layout.scss */
 .movie-search {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-/* line 37, ../sass/partials/_layout.scss */
+/* line 84, ../sass/partials/_layout.scss */
+.nopadding {
+  padding: 0;
+}
+
+/* line 87, ../sass/partials/_layout.scss */
+.nomargin {
+  margin: 0;
+}
+
+/* line 90, ../sass/partials/_layout.scss */
+.return-link {
+  width: 60%;
+  margin: 5% auto;
+  margin-bottom: 15px;
+}
+
+/* line 95, ../sass/partials/_layout.scss */
 .title-card {
   position: relative;
   margin: 0 5px 20px;
