@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 export default class MovieInfoDisplay extends Component {
   render() {
     return (
-      <div className="flexbox-container">
-        {Hello}
+      <div className="movie-info-container">
+        {this.props.movieInfo.original_title}
       </div>
     );
   }
 }
 
 MovieInfoDisplay.PropTypes = {
-  movieList: PropTypes.array.isRequired,
+  movieInfo: PropTypes.array.isRequired,
 };

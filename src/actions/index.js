@@ -1,16 +1,11 @@
 import { actionType } from './action-type';
 import axios from 'axios';
 import { endpoints } from './endpoints';
+import { sendBasicGetRequest, checkFetchingState } from './web-service';
 
 export const ROOT_URL = 'https://api.themoviedb.org/3';
 export const API_KEY = 'b45ac1c17d69c3203bb70624ab561b2f';
 
-
-function requestMovieList() {
-  return {
-    type: actionType.REQUEST_MOVIE_LIST,
-  };
-}
 function saveInputQuery(query) {
   return {
     type: actionType.SAVE_INPUT_QUERY,
@@ -26,27 +21,28 @@ function receiveMovieList(json) {
   };
 }
 
-function fetchMovieList(url, query) {
-  return (dispatch) => {
-    dispatch(requestMovieList());
-    return axios.get(url)
-      .then(response => dispatch(receiveMovieList(response)));
+function receiveMovieInfo(json) {
+  return {
+    type: actionType.RECEIVE_MOVIE_INFO,
+    movieInfo: json.data,
   };
-}
-
-function shouldFetchMovieList(state) {
-  if (state.isFetching) {
-    return false;
-  }
-  return true;
 }
 
 export function fetchMovieDataWithQuery(query) {
   const url = endpoints.multiSearch(query);
   return (dispatch, getState) => {
-    if (shouldFetchMovieList(getState())) {
+    if (checkFetchingState(getState())) {
       dispatch(saveInputQuery(query));
-      return dispatch(fetchMovieList(url));
+      return dispatch(sendBasicGetRequest(url, receiveMovieList));
+    }
+  };
+}
+
+export function fetchMovieInfoById(id) {
+  const url = endpoints.movieInfoById(id);
+  return (dispatch, getState) => {
+    if (checkFetchingState(getState())) {
+      return dispatch(sendBasicGetRequest(url, receiveMovieInfo));
     }
   };
 }
