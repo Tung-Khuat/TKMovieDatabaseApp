@@ -5,8 +5,7 @@
   "main": "index.js",
   "repository": "",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "test:watch": "npm run test -- --watch"
+    "start": "node server.js",
   },
   "author": "",
   "license": "ISC",
