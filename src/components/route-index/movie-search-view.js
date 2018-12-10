@@ -19,7 +19,7 @@ class MovieSearchView extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="container">
         <SearchBar onChange={this.handleChange} />
         <MovieListDisplay movieList={this.props.movieList} />
       </div>
