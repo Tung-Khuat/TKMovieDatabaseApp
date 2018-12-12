@@ -2,10 +2,18 @@ import React, { Component } from 'react';
 import { fetchMovieDataWithQuery } from '../actions/index';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
+import LoadingIndicator from './loading-indicator';
 
 export default class MovieInfoDisplay extends Component {
   render() {
     const movie = this.props.movieInfo;
+
+    // Loading indicator if data is currently isFetching
+    if (this.props.isFetching) {
+      return <LoadingIndicator />;
+    }
+
+    // render movie info display
     return (
       <div className="movie-info-container">
         <div className="movie-info-page-background" style={movie.backdrop_path ? { backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})` } : null} />

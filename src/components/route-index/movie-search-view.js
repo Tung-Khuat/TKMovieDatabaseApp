@@ -21,7 +21,7 @@ class MovieSearchView extends Component {
     return (
       <div className="container">
         <SearchBar onChange={this.handleChange} />
-        <MovieListDisplay movieList={this.props.movieList} />
+        <MovieListDisplay movieList={this.props.movieList} isFetching={this.props.isFetching} />
       </div>
     );
   }
