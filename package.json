@@ -5,6 +5,7 @@
   "main": "index.js",
   "repository": "",
   "scripts": {
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --host 0.0.0.0 --port 3000",
     "postinstall": "webpack -p",
     "start": "node server.js"
   },
@@ -34,10 +35,7 @@
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-stage-1": "^6.1.18",
-<<<<<<< HEAD
-=======
     "express": "^4.16.4",
->>>>>>> ebc87f29c91059ccaa3aac960ecf70632b7d4611
     "lodash": "^3.10.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
