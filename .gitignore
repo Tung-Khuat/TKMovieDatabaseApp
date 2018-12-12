@@ -6,4 +6,7 @@ npm-debug.log
 # IntelliJ
 *.iml
 /.idea
+<<<<<<< HEAD
 .sass-cache/
+=======
+>>>>>>> ebc87f29c91059ccaa3aac960ecf70632b7d4611
