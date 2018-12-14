@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { fetchMovieDataWithQuery } from '../actions/index';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 
-export default class MovieListDisplay extends Component {
-  renderMovieListDisplay() {
+export default class MovieExploreDisplay extends Component {
+  renderMovieExploreDisplay() {
     if (this.props.movieList.length < 1) {
       return <div>No results found.</div>;
     }
@@ -25,12 +24,12 @@ export default class MovieListDisplay extends Component {
   render() {
     return (
       <div className="flexbox-container">
-        {this.renderMovieListDisplay()}
+        {this.renderMovieExploreDisplay()}
       </div>
     );
   }
 }
 
-MovieListDisplay.PropTypes = {
-  movieList: PropTypes.array.isRequired,
+MovieExploreDisplay.PropTypes = {
+  movieSearch: PropTypes.array.isRequired,
 };

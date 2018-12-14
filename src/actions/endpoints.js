@@ -18,7 +18,13 @@ export const endpoints = {
   /*
   ---------Movies---------
   */
+  // Get movies information with an ID
   movieInfoById(movie_id) {
     return `${ROOT_URL}/movie/${movie_id}?api_key=${API_KEY}`;
+  },
+
+  // List of popular movies
+  popularMoviesList() {
+    return `${ROOT_URL}/movie/popular?api_key=${API_KEY}`;
   },
 };

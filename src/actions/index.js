@@ -13,10 +13,18 @@ function saveInputQuery(query) {
   };
 }
 
-function receiveMovieList(json) {
+function receiveSearchedMovieList(json) {
   return {
-    type: actionType.RECEIVE_MOVIE_LIST,
-    movieList: json.data.results,
+    type: actionType.RECEIVE_SEARCHED_MOVIE_LIST,
+    searchedMovieList: json.data.results,
+    receiveAt: Date.now(),
+  };
+}
+
+function receivePopularMovieList(json) {
+  return {
+    type: actionType.RECEIVE_POPULAR_MOVIE_LIST,
+    popularMovieList: json.data.results,
     receiveAt: Date.now(),
   };
 }
@@ -33,7 +41,7 @@ export function fetchMovieDataWithQuery(query) {
   return (dispatch, getState) => {
     if (checkFetchingState(getState())) {
       dispatch(saveInputQuery(query));
-      return dispatch(sendBasicGetRequest(url, receiveMovieList));
+      return dispatch(sendBasicGetRequest(url, receiveSearchedMovieList));
     }
   };
 }
@@ -43,6 +51,22 @@ export function fetchMovieInfoById(id) {
   return (dispatch, getState) => {
     if (checkFetchingState(getState())) {
       return dispatch(sendBasicGetRequest(url, receiveMovieInfo));
+    }
+  };
+}
+
+export function fetchMovieExploreFeeds(url) {
+  let recieveFeedFunction = null;
+  switch (url) {
+    case endpoints.popularMoviesList():
+      recieveFeedFunction = receivePopularMovieList;
+      break;
+    default:
+  }
+  console.log(recieveFeedFunction);
+  return (dispatch, getState) => {
+    if (checkFetchingState(getState())) {
+      return dispatch(sendBasicGetRequest(url, recieveFeedFunction));
     }
   };
 }
