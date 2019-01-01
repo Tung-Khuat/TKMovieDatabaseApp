@@ -20,6 +20,12 @@ class MovieExploreView extends Component {
   componentWillMount() {
     // Load popular movies
     this.props.dispatch(fetchMovieExploreFeeds(endpoints.popularMoviesList()));
+
+    // Load upcoming movies
+    this.props.dispatch(fetchMovieExploreFeeds(endpoints.upcomingMovieList()));
+
+    // Load top rated movies
+    this.props.dispatch(fetchMovieExploreFeeds(endpoints.topRatedMovieList()));
   }
   handleChange(input) {
     this.props.dispatch(fetchMovieDataWithQuery(input));
@@ -28,7 +34,16 @@ class MovieExploreView extends Component {
     if (this.props.querySearched) {
       return <MovieSearchDisplay movieList={this.props.searchedMovieList} />;
     }
-    return <MovieExploreDisplay movieList={this.props.popularMovieList} />;
+    return (
+      <div>
+        <h1>Popular Movies</h1>
+        <MovieExploreDisplay movieList={this.props.popularMovieList} />
+        <h1>Top Rated Movies</h1>
+        <MovieExploreDisplay movieList={this.props.topRatedMovieList} />
+        <h1>Upcoming Movies</h1>
+        <MovieExploreDisplay movieList={this.props.upcomingMovieList} />
+      </div>
+    );
   }
   render() {
     return (
@@ -45,14 +60,18 @@ MovieExploreView.PropTypes = {
   dispatch: PropTypes.func.isRequired,
   searchedMovieList: PropTypes.array.isRequired,
   popularMovieList: PropTypes.array.isRequired,
+  upcomingMovieList: PropTypes.array.isRequired,
+  topRatedMovieList: PropTypes.array.isRequired,
   querySearched: PropTypes.string.isRequired,
 };
 
 function mapStateToProps(state) {
-  const { searchedMovieList, popularMovieList, isFetching, querySearched } = state.moviesProvider;
+  const { searchedMovieList, popularMovieList, upcomingMovieList, topRatedMovieList, isFetching, querySearched } = state.moviesProvider;
   return {
     searchedMovieList,
     popularMovieList,
+    upcomingMovieList,
+    topRatedMovieList,
     isFetching,
     querySearched,
   };

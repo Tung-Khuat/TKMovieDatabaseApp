@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
+import OwlCarousel from 'react-owl-carousel2';
+
+const carouselOptions = {
+  items: 5,
+  nav: false,
+  rewind: true,
+  autoplay: false,
+  loop: true,
+};
 
 export default class MovieExploreDisplay extends Component {
   renderMovieExploreDisplay() {
@@ -23,8 +32,21 @@ export default class MovieExploreDisplay extends Component {
   }
   render() {
     return (
-      <div className="flexbox-container">
-        {this.renderMovieExploreDisplay()}
+      <div className="carousel">
+        <OwlCarousel ref={el => this.carousel = el} options={carouselOptions}>
+          {this.renderMovieExploreDisplay()}
+        </OwlCarousel>
+        {
+          this.props.movieList.length > 1 &&
+          <div>
+            <div className="carousel-nav" style={{ left: 0 }}>
+              <i className="fa fa-chevron-left fa-lg pl-2" onClick={() => this.carousel.prev()} />
+            </div>
+            <div className="carousel-nav" style={{ right: 0 }}>
+              <i className="fa fa-chevron-right fa-lg pl-2" onClick={() => this.carousel.next()} />
+            </div>
+          </div>
+        }
       </div>
     );
   }

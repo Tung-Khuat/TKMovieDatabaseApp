@@ -27,4 +27,14 @@ export const endpoints = {
   popularMoviesList() {
     return `${ROOT_URL}/movie/popular?api_key=${API_KEY}`;
   },
+
+  // List of popular movies
+  topRatedMovieList() {
+    return `${ROOT_URL}/movie/top_rated?api_key=${API_KEY}`;
+  },
+
+  // List of upcoming movies
+  upcomingMovieList() {
+    return `${ROOT_URL}/movie/upcoming?api_key=${API_KEY}`;
+  },
 };

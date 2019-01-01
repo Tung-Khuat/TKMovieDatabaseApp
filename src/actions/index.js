@@ -28,6 +28,20 @@ function receivePopularMovieList(json) {
     receiveAt: Date.now(),
   };
 }
+function receiveUpcomingMovieList(json) {
+  return {
+    type: actionType.RECEIVE_UPCOMING_MOVIE_LIST,
+    upcomingMovieList: json.data.results,
+    receiveAt: Date.now(),
+  };
+}
+function receiveTopRatedMovieList(json) {
+  return {
+    type: actionType.RECEIVE_TOP_RATED_MOVIE_LIST,
+    topRatedMovieList: json.data.results,
+    receiveAt: Date.now(),
+  };
+}
 
 function receiveMovieInfo(json) {
   return {
@@ -61,9 +75,14 @@ export function fetchMovieExploreFeeds(url) {
     case endpoints.popularMoviesList():
       recieveFeedFunction = receivePopularMovieList;
       break;
+    case endpoints.upcomingMovieList():
+      recieveFeedFunction = receiveUpcomingMovieList;
+      break;
+    case endpoints.topRatedMovieList():
+      recieveFeedFunction = receiveTopRatedMovieList;
+      break;
     default:
   }
-  console.log(recieveFeedFunction);
   return (dispatch, getState) => {
     if (checkFetchingState(getState())) {
       return dispatch(sendBasicGetRequest(url, recieveFeedFunction));

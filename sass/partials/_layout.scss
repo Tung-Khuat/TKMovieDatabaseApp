@@ -23,6 +23,21 @@
   color: $default-white;
   font-size: 1.5em;
 }
+.carousel{
+  text-align: center;
+  padding: 10px 30px;
+}
+.carousel-nav{
+  cursor: pointer;
+  opacity: 0.5;
+  position: absolute;
+  z-index: 9;
+  top: 50%;
+  font-size: 1.5em;
+}
+.carousel-nav:hover{
+  opacity: 1;
+}
 .flexbox-container {
   display: flex;
   flex-wrap: wrap;
