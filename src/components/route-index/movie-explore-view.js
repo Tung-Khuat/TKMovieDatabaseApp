@@ -30,18 +30,25 @@ class MovieExploreView extends Component {
   handleChange(input) {
     this.props.dispatch(fetchMovieDataWithQuery(input));
   }
+  renderExploreCarousel(title, list) {
+    if (list.length > 0) {
+      return (
+        <div>
+          <h1>{title}</h1>
+          <MovieExploreDisplay movieList={list} />
+        </div>
+      );
+    }
+  }
   renderDisplay() {
     if (this.props.querySearched) {
       return <MovieSearchDisplay movieList={this.props.searchedMovieList} />;
     }
     return (
       <div>
-        <h1>Popular Movies</h1>
-        <MovieExploreDisplay movieList={this.props.popularMovieList} />
-        <h1>Top Rated Movies</h1>
-        <MovieExploreDisplay movieList={this.props.topRatedMovieList} />
-        <h1>Upcoming Movies</h1>
-        <MovieExploreDisplay movieList={this.props.upcomingMovieList} />
+        {this.renderExploreCarousel('Popular Movies', this.props.popularMovieList)}
+        {this.renderExploreCarousel('Top Rated Movies', this.props.topRatedMovieList)}
+        {this.renderExploreCarousel('Upcoming Movies', this.props.upcomingMovieList)}
       </div>
     );
   }
