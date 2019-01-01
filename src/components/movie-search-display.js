@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchMovieDataWithQuery } from '../actions/index';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
+import LoadingIndicator from './loading-indicator';
 
 export default class MovieSearchDisplay extends Component {
   renderMovieSearchDisplay() {
@@ -23,6 +24,11 @@ export default class MovieSearchDisplay extends Component {
     );
   }
   render() {
+    // Loading indicator if data is currently isFetching
+    if (this.props.isFetching) {
+      return <LoadingIndicator />;
+    }
+
     return (
       <div className="flexbox-container">
         {this.renderMovieSearchDisplay()}

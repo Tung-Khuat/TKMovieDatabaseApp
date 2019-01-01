@@ -48,6 +48,18 @@
 .highlight-text-color {
   color: $tk-text-highlight;
 }
+.loading-icon {
+  font-size: 35px;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.loading-section-container {
+  height: 75vh;
+}
 .meta-data-container{
   font-size: 1.5em;
   padding-bottom: 30px;
@@ -57,17 +69,15 @@
   margin: 0 auto;
   background: rgba(0,0,0,.7);
   border-radius: 4px;
-  @media screen and (max-width: $break-medium) {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
 }
 .movie-info-container {
   position: absolute;
   width: 100%;
   background: linear-gradient(rgba(0,0,0,.85) 15%,rgba(0,0,0,.2) 40%,#000 90%);
   height: 110vh;
+  @media screen and (max-width: $break-medium) {
+    background: none;
+  }
 }
 .movie-info-poster {
   width: 100%;
@@ -87,6 +97,9 @@
   position: absolute;
   opacity: 0.7;
   z-index: -100;
+  @media screen and (max-width: $break-medium) {
+    display: none;
+  }
 }
 .movie-overview {
   color: $tk-grey;
@@ -101,6 +114,12 @@
 }
 .nomargin {
   margin: 0;
+}
+.poster-container img {
+  @media screen and (max-width: $break-medium) {
+    margin: 0 auto;
+    display: block;
+  }
 }
 .return-link {
   width: 60%;

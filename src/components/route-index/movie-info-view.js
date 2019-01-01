@@ -13,7 +13,7 @@ class MovieInfoView extends Component {
       <div>
         {
           this.props.movieInfo &&
-          <MovieInfoDisplay movieInfo={this.props.movieInfo} />
+          <MovieInfoDisplay movieInfo={this.props.movieInfo} isFetching={this.props.isFetching} />
         }
       </div>
     );
@@ -22,6 +22,7 @@ class MovieInfoView extends Component {
 
 MovieInfoView.PropTypes = {
   movieInfo: PropTypes.array.isRequired,
+  isFetching: PropTypes.bool.isRequired,
 };
 
 function mapStateToProps(state) {
