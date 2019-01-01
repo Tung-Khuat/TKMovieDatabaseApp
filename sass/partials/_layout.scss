@@ -34,9 +34,9 @@
   z-index: 9;
   top: 50%;
   font-size: 1.5em;
-}
-.carousel-nav:hover{
-  opacity: 1;
+  &:hover{
+    opacity: 1;
+  }
 }
 .flexbox-container {
   display: flex;
