@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import LoadingIndicator from './loading-indicator';
 
-export default class MovieListDisplay extends Component {
-  renderMovieListDisplay() {
+export default class MovieSearchDisplay extends Component {
+  renderMovieSearchDisplay() {
     if (this.props.movieList.length < 1) {
       return <div>No results found.</div>;
     }
@@ -31,12 +31,12 @@ export default class MovieListDisplay extends Component {
 
     return (
       <div className="flexbox-container">
-        {this.renderMovieListDisplay()}
+        {this.renderMovieSearchDisplay()}
       </div>
     );
   }
 }
 
-MovieListDisplay.PropTypes = {
+MovieSearchDisplay.PropTypes = {
   movieList: PropTypes.array.isRequired,
 };
