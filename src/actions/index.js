@@ -21,6 +21,14 @@ function receiveSearchedMovieList(json) {
   };
 }
 
+function receiveTrendingMovieList(json) {
+  return {
+    type: actionType.RECEIVE_TRENDING_MOVIE_LIST,
+    trendingMovieList: json.data.results,
+    receiveAt: Date.now(),
+  };
+}
+
 function receivePopularMovieList(json) {
   return {
     type: actionType.RECEIVE_POPULAR_MOVIE_LIST,
@@ -28,6 +36,7 @@ function receivePopularMovieList(json) {
     receiveAt: Date.now(),
   };
 }
+
 function receiveUpcomingMovieList(json) {
   return {
     type: actionType.RECEIVE_UPCOMING_MOVIE_LIST,
@@ -72,6 +81,9 @@ export function fetchMovieInfoById(id) {
 export function fetchMovieExploreFeeds(url) {
   let recieveFeedFunction = null;
   switch (url) {
+    case endpoints.trendingMovieList():
+      recieveFeedFunction = receiveTrendingMovieList;
+      break;
     case endpoints.popularMoviesList():
       recieveFeedFunction = receivePopularMovieList;
       break;

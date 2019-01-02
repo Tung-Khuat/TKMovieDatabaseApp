@@ -30,8 +30,11 @@ export default class MovieSearchDisplay extends Component {
     }
 
     return (
-      <div className="flexbox-container">
-        {this.renderMovieSearchDisplay()}
+      <div>
+        <h3>Displaying titles related to: <em>"{this.props.querySearched}"</em></h3>
+        <div className="flexbox-container">
+          {this.renderMovieSearchDisplay()}
+        </div>
       </div>
     );
   }
@@ -39,4 +42,5 @@ export default class MovieSearchDisplay extends Component {
 
 MovieSearchDisplay.PropTypes = {
   movieList: PropTypes.array.isRequired,
+  querySearched: PropTypes.string,
 };

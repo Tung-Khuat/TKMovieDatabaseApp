@@ -10,6 +10,7 @@ export default class SearchBar extends Component {
         <input
           className="movie-search"
           placeholder="Enter movie title"
+          value={this.props.querySearched}
           onChange={event => onChange(event.target.value)}
         />
       </div>
@@ -19,5 +20,5 @@ export default class SearchBar extends Component {
 
 SearchBar.PropTypes = {
   onChange: PropTypes.func.isRequired,
-
+  querySearched: PropTypes.string,
 };

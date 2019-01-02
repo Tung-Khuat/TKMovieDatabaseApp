@@ -18,6 +18,9 @@ class MovieExploreView extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
   componentWillMount() {
+    // Load trending movies
+    this.props.dispatch(fetchMovieExploreFeeds(endpoints.trendingMovieList()));
+
     // Load popular movies
     this.props.dispatch(fetchMovieExploreFeeds(endpoints.popularMoviesList()));
 
@@ -30,25 +33,33 @@ class MovieExploreView extends Component {
   handleChange(input) {
     this.props.dispatch(fetchMovieDataWithQuery(input));
   }
+  renderExploreCarousel(title, list) {
+    if (list.length > 0) {
+      return (
+        <div>
+          <h1>{title}</h1>
+          <MovieExploreDisplay movieList={list} />
+        </div>
+      );
+    }
+  }
   renderDisplay() {
     if (this.props.querySearched) {
-      return <MovieSearchDisplay movieList={this.props.searchedMovieList} />;
+      return <MovieSearchDisplay movieList={this.props.searchedMovieList} querySearched={this.props.querySearched} />;
     }
     return (
       <div>
-        <h1>Popular Movies</h1>
-        <MovieExploreDisplay movieList={this.props.popularMovieList} />
-        <h1>Top Rated Movies</h1>
-        <MovieExploreDisplay movieList={this.props.topRatedMovieList} />
-        <h1>Upcoming Movies</h1>
-        <MovieExploreDisplay movieList={this.props.upcomingMovieList} />
+        {this.renderExploreCarousel('Trending', this.props.trendingMovieList)}
+        {this.renderExploreCarousel('Popular Movies', this.props.popularMovieList)}
+        {this.renderExploreCarousel('Top Rated Movies', this.props.topRatedMovieList)}
+        {this.renderExploreCarousel('Upcoming Movies', this.props.upcomingMovieList)}
       </div>
     );
   }
   render() {
     return (
       <div className="container">
-        <SearchBar onChange={this.handleChange} />
+        <SearchBar onChange={this.handleChange} querySearched={this.props.querySearched} />
         {this.renderDisplay()}
       </div>
     );
@@ -59,16 +70,18 @@ MovieExploreView.PropTypes = {
   isFetching: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
   searchedMovieList: PropTypes.array.isRequired,
+  trendingMovieList: PropTypes.array.isRequired,
   popularMovieList: PropTypes.array.isRequired,
   upcomingMovieList: PropTypes.array.isRequired,
   topRatedMovieList: PropTypes.array.isRequired,
-  querySearched: PropTypes.string.isRequired,
+  querySearched: PropTypes.string,
 };
 
 function mapStateToProps(state) {
-  const { searchedMovieList, popularMovieList, upcomingMovieList, topRatedMovieList, isFetching, querySearched } = state.moviesProvider;
+  const { searchedMovieList, popularMovieList, trendingMovieList, upcomingMovieList, topRatedMovieList, isFetching, querySearched } = state.moviesProvider;
   return {
     searchedMovieList,
+    trendingMovieList,
     popularMovieList,
     upcomingMovieList,
     topRatedMovieList,

@@ -37,4 +37,9 @@ export const endpoints = {
   upcomingMovieList() {
     return `${ROOT_URL}/movie/upcoming?api_key=${API_KEY}`;
   },
+
+  // List of trending movies this week ( /trending/{media_type}/{time_window} )
+  trendingMovieList() {
+    return `${ROOT_URL}/trending/movie/week?api_key=${API_KEY}`;
+  },
 };
