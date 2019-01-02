@@ -45,7 +45,7 @@ class MovieExploreView extends Component {
   }
   renderDisplay() {
     if (this.props.querySearched) {
-      return <MovieSearchDisplay movieList={this.props.searchedMovieList} />;
+      return <MovieSearchDisplay movieList={this.props.searchedMovieList} querySearched={this.props.querySearched} />;
     }
     return (
       <div>
@@ -59,7 +59,7 @@ class MovieExploreView extends Component {
   render() {
     return (
       <div className="container">
-        <SearchBar onChange={this.handleChange} />
+        <SearchBar onChange={this.handleChange} querySearched={this.props.querySearched} />
         {this.renderDisplay()}
       </div>
     );
@@ -74,7 +74,7 @@ MovieExploreView.PropTypes = {
   popularMovieList: PropTypes.array.isRequired,
   upcomingMovieList: PropTypes.array.isRequired,
   topRatedMovieList: PropTypes.array.isRequired,
-  querySearched: PropTypes.string.isRequired,
+  querySearched: PropTypes.string,
 };
 
 function mapStateToProps(state) {
