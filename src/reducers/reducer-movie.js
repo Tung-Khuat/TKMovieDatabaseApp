@@ -1,6 +1,6 @@
 import { actionType } from '../actions/action-type';
 
-const INITIAL_STATE = { searchedMovieList: [], popularMovieList: [], upcomingMovieList: [], topRatedMovieList: [], isFetching: false, querySearched: null, movieInfo: null };
+const INITIAL_STATE = { searchedMovieList: [], popularMovieList: [], trendingMovieList: [], upcomingMovieList: [], topRatedMovieList: [], isFetching: false, querySearched: null, movieInfo: null };
 
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -16,6 +16,12 @@ export default function (state = INITIAL_STATE, action) {
       return Object.assign({}, state, {
         isFetching: false,
         searchedMovieList: action.searchedMovieList,
+        lastUpdated: action.receiveAt,
+      });
+    case actionType.RECEIVE_TRENDING_MOVIE_LIST:
+      return Object.assign({}, state, {
+        isFetching: false,
+        trendingMovieList: action.trendingMovieList,
         lastUpdated: action.receiveAt,
       });
     case actionType.RECEIVE_POPULAR_MOVIE_LIST:
