@@ -108,6 +108,18 @@
 .movie-search {
   margin-top: 20px;
   margin-bottom: 20px;
+  border-radius: 37px;
+  color: #fff;
+  background: $tk-black;
+  padding: 10px 20px;
+  outline: none;
+  pointer-events: all;
+  transition: border .24s ease, width .125s ease .125s;
+  border: 2px solid $tk-grey;
+  &:focus {
+    border: 2px solid #fff;
+    width: 100%;
+  }
 }
 .nopadding {
   padding: 0;

@@ -637,34 +637,47 @@ input {
 .movie-search {
   margin-top: 20px;
   margin-bottom: 20px;
+  border-radius: 37px;
+  color: #fff;
+  background: #141414;
+  padding: 10px 20px;
+  outline: none;
+  pointer-events: all;
+  transition: border .24s ease, width .125s ease .125s;
+  border: 2px solid #999;
+}
+/* line 119, ../sass/partials/_layout.scss */
+.movie-search:focus {
+  border: 2px solid #fff;
+  width: 100%;
 }
 
-/* line 112, ../sass/partials/_layout.scss */
+/* line 124, ../sass/partials/_layout.scss */
 .nopadding {
   padding: 0;
 }
 
-/* line 115, ../sass/partials/_layout.scss */
+/* line 127, ../sass/partials/_layout.scss */
 .nomargin {
   margin: 0;
 }
 
 @media screen and (max-width: 991px) {
-  /* line 118, ../sass/partials/_layout.scss */
+  /* line 130, ../sass/partials/_layout.scss */
   .poster-container img {
     margin: 0 auto;
     display: block;
   }
 }
 
-/* line 124, ../sass/partials/_layout.scss */
+/* line 136, ../sass/partials/_layout.scss */
 .return-link {
   width: 60%;
   margin: 5% auto;
   margin-bottom: 15px;
 }
 
-/* line 129, ../sass/partials/_layout.scss */
+/* line 141, ../sass/partials/_layout.scss */
 .title-card {
   position: relative;
   margin: 0 5px 20px;
