@@ -481,7 +481,27 @@ input {
   width: 100%;
 }
 
-/* line 1, ../sass/partials/_layout.scss */
+@-webkit-keyframes slideIn {
+  from {
+    height: 0;
+    opacity: 0.5;
+  }
+  to {
+    height: 100%;
+    opacity: 1;
+  }
+}
+@keyframes slideIn {
+  from {
+    height: 0;
+    opacity: 0.5;
+  }
+  to {
+    height: 100%;
+    opacity: 1;
+  }
+}
+/* line 17, ../sass/partials/_layout.scss */
 .boxart-container {
   overflow: hidden;
   padding: 28.125% 0;
@@ -489,7 +509,14 @@ input {
   margin: 0 auto;
 }
 
-/* line 7, ../sass/partials/_layout.scss */
+/* line 23, ../sass/partials/_layout.scss */
+.boxart-container:hover .boxart-movie-info {
+  display: block;
+  -webkit-animation: slideIn 1s;
+  animation: slideIn 1s;
+}
+
+/* line 28, ../sass/partials/_layout.scss */
 .boxart-image {
   width: 100%;
   position: absolute;
@@ -500,8 +527,23 @@ input {
   z-index: -10;
 }
 
-/* line 16, ../sass/partials/_layout.scss */
+/* line 37, ../sass/partials/_layout.scss */
 .boxart-movie-info {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 15px;
+  display: none;
+  background-color: rgba(20, 20, 20, 0.8);
+  color: #fff;
+  font-size: 1em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* line 50, ../sass/partials/_layout.scss */
+.boxart-movie-title {
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -510,15 +552,17 @@ input {
   opacity: 0.5;
   color: #fff;
   font-size: 1.5em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-/* line 26, ../sass/partials/_layout.scss */
+/* line 64, ../sass/partials/_layout.scss */
 .carousel {
-  text-align: center;
   padding: 10px 30px;
 }
 
-/* line 30, ../sass/partials/_layout.scss */
+/* line 67, ../sass/partials/_layout.scss */
 .carousel-nav {
   cursor: pointer;
   opacity: 0.5;
@@ -527,28 +571,43 @@ input {
   top: 50%;
   font-size: 1.5em;
 }
-/* line 37, ../sass/partials/_layout.scss */
+/* line 74, ../sass/partials/_layout.scss */
 .carousel-nav:hover {
   opacity: 1;
 }
 
-/* line 41, ../sass/partials/_layout.scss */
+/* line 78, ../sass/partials/_layout.scss */
+.centered {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* line 82, ../sass/partials/_layout.scss */
 .flexbox-container {
   display: flex;
   flex-wrap: wrap;
 }
 
-/* line 45, ../sass/partials/_layout.scss */
+/* line 86, ../sass/partials/_layout.scss */
 .highlight-text-size {
   font-size: 1.25em;
 }
 
-/* line 48, ../sass/partials/_layout.scss */
+/* line 89, ../sass/partials/_layout.scss */
 .highlight-text-color {
   color: #1474cc;
 }
 
-/* line 51, ../sass/partials/_layout.scss */
+/* line 92, ../sass/partials/_layout.scss */
+.horizontal-line {
+  border: 0.5px solid #999;
+  width: 80%;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+/* line 99, ../sass/partials/_layout.scss */
 .loading-icon {
   font-size: 35px;
   width: 100%;
@@ -559,18 +618,18 @@ input {
   transform: translateY(-50%);
 }
 
-/* line 60, ../sass/partials/_layout.scss */
+/* line 108, ../sass/partials/_layout.scss */
 .loading-section-container {
   height: 75vh;
 }
 
-/* line 63, ../sass/partials/_layout.scss */
+/* line 111, ../sass/partials/_layout.scss */
 .meta-data-container {
   font-size: 1.5em;
   padding-bottom: 30px;
 }
 
-/* line 67, ../sass/partials/_layout.scss */
+/* line 115, ../sass/partials/_layout.scss */
 .movie-info-card {
   width: 60%;
   margin: 0 auto;
@@ -578,7 +637,7 @@ input {
   border-radius: 4px;
 }
 
-/* line 73, ../sass/partials/_layout.scss */
+/* line 121, ../sass/partials/_layout.scss */
 .movie-info-container {
   position: absolute;
   width: 100%;
@@ -586,30 +645,30 @@ input {
   height: 110vh;
 }
 @media screen and (max-width: 991px) {
-  /* line 73, ../sass/partials/_layout.scss */
+  /* line 121, ../sass/partials/_layout.scss */
   .movie-info-container {
     background: none;
   }
 }
 
-/* line 82, ../sass/partials/_layout.scss */
+/* line 130, ../sass/partials/_layout.scss */
 .movie-info-poster {
   width: 100%;
 }
 @media screen and (max-width: 450px) {
-  /* line 82, ../sass/partials/_layout.scss */
+  /* line 130, ../sass/partials/_layout.scss */
   .movie-info-poster {
     width: 100px;
   }
 }
 @media screen and (max-width: 991px) {
-  /* line 82, ../sass/partials/_layout.scss */
+  /* line 130, ../sass/partials/_layout.scss */
   .movie-info-poster {
     width: 360px;
   }
 }
 
-/* line 91, ../sass/partials/_layout.scss */
+/* line 139, ../sass/partials/_layout.scss */
 .movie-info-page-background {
   width: 100%;
   height: 100vh;
@@ -621,24 +680,24 @@ input {
   z-index: -100;
 }
 @media screen and (max-width: 991px) {
-  /* line 91, ../sass/partials/_layout.scss */
+  /* line 139, ../sass/partials/_layout.scss */
   .movie-info-page-background {
     display: none;
   }
 }
 
-/* line 104, ../sass/partials/_layout.scss */
+/* line 152, ../sass/partials/_layout.scss */
 .movie-overview {
   color: #999;
   padding-bottom: 10px;
 }
 
-/* line 108, ../sass/partials/_layout.scss */
+/* line 156, ../sass/partials/_layout.scss */
 .movie-search {
   margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 37px;
-  color: #fff;
+  color: #999;
   background: #141414;
   padding: 10px 20px;
   outline: none;
@@ -646,38 +705,39 @@ input {
   transition: border .24s ease, width .125s ease .125s;
   border: 2px solid #999;
 }
-/* line 119, ../sass/partials/_layout.scss */
+/* line 167, ../sass/partials/_layout.scss */
 .movie-search:focus {
   border: 2px solid #fff;
   width: 100%;
+  color: #fff;
 }
 
-/* line 124, ../sass/partials/_layout.scss */
+/* line 173, ../sass/partials/_layout.scss */
 .nopadding {
   padding: 0;
 }
 
-/* line 127, ../sass/partials/_layout.scss */
+/* line 176, ../sass/partials/_layout.scss */
 .nomargin {
   margin: 0;
 }
 
 @media screen and (max-width: 991px) {
-  /* line 130, ../sass/partials/_layout.scss */
+  /* line 179, ../sass/partials/_layout.scss */
   .poster-container img {
     margin: 0 auto;
     display: block;
   }
 }
 
-/* line 136, ../sass/partials/_layout.scss */
+/* line 185, ../sass/partials/_layout.scss */
 .return-link {
   width: 60%;
   margin: 5% auto;
   margin-bottom: 15px;
 }
 
-/* line 141, ../sass/partials/_layout.scss */
+/* line 190, ../sass/partials/_layout.scss */
 .title-card {
   position: relative;
   margin: 0 5px 20px;
