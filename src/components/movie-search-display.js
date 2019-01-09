@@ -3,6 +3,7 @@ import { fetchMovieDataWithQuery } from '../actions/index';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import LoadingIndicator from './loading-indicator';
+import MovieCard from './movie-card';
 
 export default class MovieSearchDisplay extends Component {
   renderMovieSearchDisplay() {
@@ -11,15 +12,7 @@ export default class MovieSearchDisplay extends Component {
     }
     return this.props.movieList.map(
       (movie, i) => (
-        <Link to={`/movie/${movie.id}`} key={i} className="title-card" >
-          <div className="boxart-container" >
-            <img
-              className="boxart-image"
-              src={movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}` : `https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-            />
-            <div className="boxart-movie-info">{movie.title || movie.name || movie.original_name || 'N/A'}</div>
-          </div>
-        </Link>
+        <MovieCard movie={movie} index={i} />
       ),
     );
   }

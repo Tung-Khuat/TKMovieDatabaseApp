@@ -1,14 +1,30 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
 import OwlCarousel from 'react-owl-carousel2';
+import MovieCard from './movie-card';
 
 const carouselOptions = {
-  items: 5,
   nav: false,
   rewind: true,
   autoplay: false,
   loop: true,
+  responsive: {
+    // breakpoint from 0 up
+    0: {
+      items: 1,
+    },
+    // breakpoint from 480 up
+    480: {
+      items: 2,
+    },
+    // breakpoint from 768 up
+    768: {
+      items: 3,
+    },
+    1200: {
+      items: 4,
+    },
+  },
 };
 
 export default class MovieExploreDisplay extends Component {
@@ -18,15 +34,7 @@ export default class MovieExploreDisplay extends Component {
     }
     return this.props.movieList.map(
       (movie, i) => (
-        <Link to={`/movie/${movie.id}`} key={i} className="title-card" >
-          <div className="boxart-container" >
-            <img
-              className="boxart-image"
-              src={movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}` : `https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-            />
-            <div className="boxart-movie-info">{movie.title || movie.name || movie.original_name || 'N/A'}</div>
-          </div>
-        </Link>
+        <MovieCard movie={movie} index={i} />
       ),
     );
   }
